@@ -1,0 +1,142 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.header.show {
+  opacity: 1;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/profile.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.profileImage {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin: 0;
+  user-select: none;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #ccc;
+  user-select: none;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.header.show .socialLinks {
+  opacity: 1;
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  background-color: #444;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.socialLinks a:hover {
+  background-color: #555;
+}
+
+.socialLinks a svg {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header h2 {
+    font-size: 1.2rem;
+  }
+
+  .profileImage {
+    width: 120px;
+    height: 120px;
+  }
+
+  .socialLinks {
+    gap: 5px;
+  }
+
+  .socialLinks a {
+    justify-content: center;
+    padding: 8px 10px;
+  }
+
+  .socialLinks a svg {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .header h2 {
+    font-size: 1rem;
+  }
+
+  .profileImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .socialLinks {
+    gap: 5px;
+  }
+
+  .socialLinks a {
+    padding: 6px 8px;
+  }
+
+  .socialLinks a svg {
+    margin-right: 3px;
+  }
+}

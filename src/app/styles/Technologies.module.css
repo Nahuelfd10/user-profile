@@ -1,0 +1,146 @@
+.technologies {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.technologies.show {
+  opacity: 1;
+}
+
+.technologies .techContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.technologies .techContainer::before,
+.technologies .techContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 1;
+}
+
+.technologies .techContainer::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 26, 26, 1),
+    rgba(26, 26, 26, 0)
+  );
+}
+
+.technologies .techContainer::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(26, 26, 26, 1),
+    rgba(26, 26, 26, 0)
+  );
+}
+
+.technologies .techContent {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+  background-color: #1a1a1a;
+  gap: 20px;
+}
+
+.technologies .techCard {
+  flex: 0 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.technologies h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+  user-select: none;
+}
+
+.technologies .labelSection,
+.technologies .techName {
+  text-align: center;
+  color: #aaa;
+  user-select: none;
+}
+
+.technologies .techName {
+  color: #ccc;
+}
+
+.technologies .labelSection {
+  margin-bottom: 15px;
+}
+
+.techIcon {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #808080;
+}
+
+.techCard:hover .techIcon {
+  transform: scale(1.2);
+  color: var(--tech-color);
+}
+
+.techCard p {
+  margin-top: 10px;
+  font-size: 1rem;
+  min-width: 120px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .technologies h2 {
+    font-size: 1.2rem;
+  }
+
+  .technologies p {
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  .techCard {
+    padding: 15px;
+    min-width: 100px;
+  }
+
+  .techIcon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .technologies h2 {
+    font-size: 1rem;
+  }
+
+  .technologies p {
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+
+  .techCard {
+    padding: 10px;
+    min-width: 80px;
+  }
+
+  .techIcon {
+    font-size: 2rem;
+  }
+}
